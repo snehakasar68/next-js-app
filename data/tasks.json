@@ -1,0 +1,60 @@
+[
+   {
+    "id": "MS1-T581",
+    "name": "Implement authentication API",
+    "project": "Mysa Student Information",
+    "owner": "Purvesh",
+    "subtasks": []
+  },
+   {
+    "id": "MS1-T582",
+    "name": "Create user dashboard",
+    "project": "Mysa Student Information",
+    "owner": "Purvesh",
+    "subtasks": []
+  },
+  {
+    "id": "MS1-T573",
+    "name": "Country Zipcode validation update",
+    "project": "Mysa Student Information",
+    "owner": "Sneha",
+    "subtasks": [
+      { "id": "MS1-T573-1", "name": "Frontend - Country Zipcode validation" },
+      { "id": "MS1-T573-2", "name": "Backend - Country Zipcode validation" }
+    ]
+  },
+  {
+    "id": "MS1-T577",
+    "name": "Implement payment gateway",
+    "project": "Mysa Student Information",
+    "owner": "Sneha",
+    "subtasks": []
+  },
+  {
+    "id": "MS1-T583",
+    "name": "Task Library",
+    "project": "Mysa Student Information",
+    "owner": "Sneha",
+    "subtasks": []
+  },
+     {
+    "id": "MS1-T584",
+    "name": "Bulk Assessment",
+    "project": "Mysa Student Information",
+    "owner": "Sneha",
+    "subtasks": [
+        { "id": "MS1-T584-1", "name": "Frontend - Bulk Assessment" },
+      { "id": "MS1-T584-2", "name": "Backend - Bulk Assessment" }
+    ]
+  },
+    {
+    "id": "MS1-T585",
+    "name": "Manual Override",
+    "project": "Mysa Student Information",
+    "owner": "Purvesh",
+    "subtasks": [
+        { "id": "MS1-T585-1", "name": "Frontend - Manual Override" },
+      { "id": "MS1-T585-2", "name": "Backend - Manual Override" }
+    ]
+  }
+]

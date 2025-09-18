@@ -1,0 +1,16 @@
+.page-wrapper{
+    height: 100vh;
+    width: 100%;
+    background-color: lightblue !important;
+}
+.container{
+    margin-top: 20px;
+    text-align: center;
+}
+.input-field .MuiInputBase-root{
+    height: 40px;
+    margin-bottom: 20px;
+}
+.input-field .MuiInputBase-root input{
+    padding: 0 10px !important;
+}
