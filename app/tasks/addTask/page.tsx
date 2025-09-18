@@ -21,7 +21,7 @@ interface AddTaskProps {
 
 const AddTask: React.FC<AddTaskProps> = ({ onClose }) => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state:any) => state.tasks.tasks);
+  // const tasks = useSelector((state:any) => state.tasks.tasks);
 
   const [task, setTask] = useState<Task>({
     name: "",

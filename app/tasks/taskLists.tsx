@@ -26,7 +26,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import { deleteTask, reorderTasks } from "@/slices/tasksSlice";
+import {  reorderTasks } from "@/slices/tasksSlice";
 import ConfirmationModal from "./viewTask/confimationModal";
 import ViewTask from "./viewTask/page";
 
@@ -78,6 +78,7 @@ const SortableRow = forwardRef<HTMLTableRowElement, SortableRowProps>(
     );
   }
 );
+SortableRow.displayName = "SortableRow";
 
 export default function TaskLists() {
 const tasks = useSelector((state: any) => state.tasks);
