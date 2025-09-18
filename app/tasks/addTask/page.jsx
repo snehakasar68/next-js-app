@@ -5,21 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "@/slices/tasksSlice";
 import tasksJson from "@/data/tasks.json";
 
-// Define the Task type
-interface Task {
-  id?: string;
-  name: string;
-  project: string;
-  owner: string;
-  subtasks: string[];
-}
 
-// Props type
-interface AddTaskProps {
-  onClose: () => void;
-}
 
-const AddTask: React.FC<AddTaskProps> = ({ onClose }) => {
+const AddTask = ({ onClose }) => {
   const dispatch = useDispatch();
   // const tasks = useSelector((state:any) => state.tasks.tasks);
 
@@ -30,7 +18,7 @@ const AddTask: React.FC<AddTaskProps> = ({ onClose }) => {
     subtasks: [],
   });
 
-  const generateId = (): string => {
+  const generateId = () => {
     const ids = tasksJson.map((task) => {
       const match = task.id.match(/MS1-T(\d+)$/);
       return match ? parseInt(match[1], 10) : 0;
@@ -39,7 +27,7 @@ const AddTask: React.FC<AddTaskProps> = ({ onClose }) => {
     return `MS1-T${maxId + 1}`;
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setTask((prev) => ({ ...prev, [name]: value }));
   };
@@ -50,7 +38,7 @@ const AddTask: React.FC<AddTaskProps> = ({ onClose }) => {
       return;
     }
 
-    const newTask: Task = { ...task, id: generateId() };
+    const newTask = { ...task, id: generateId() };
     dispatch(addTask(newTask));
     onClose();
   };

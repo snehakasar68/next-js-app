@@ -14,9 +14,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 const drawerWidth = 240;
 
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
-  open?: boolean;
-}>(({ theme, open }) => ({
+const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(({ theme, open }) => ({
   flexGrow: 1,
   padding: theme.spacing(3),
   transition: theme.transitions.create("margin", {
@@ -41,7 +39,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function DashboardPage({ children,className }: { children: React.ReactNode,className?:string}) {
+export default function DashboardPage({ children,className }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const router = useRouter();

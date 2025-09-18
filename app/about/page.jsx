@@ -2,7 +2,7 @@
 
 import styles from "./about.module.css"
 
-const About:React.FC=()=>{
+const About=()=>{
     return (
         <div className="container">
             <h1 className={styles.title}>This is about page</h1>

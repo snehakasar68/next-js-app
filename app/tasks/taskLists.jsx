@@ -30,27 +30,9 @@ import {  reorderTasks } from "@/slices/tasksSlice";
 import ConfirmationModal from "./viewTask/confimationModal";
 import ViewTask from "./viewTask/page";
 
-// Define Task and Subtask types
-interface Subtask {
-  id?: string;
-  name: string;
-}
 
-export interface Task {
-  id: string;
-  name: string;
-  project: string;
-  owner: string;
-  subtasks?: Subtask[];
-}
 
-// SortableRow component
-interface SortableRowProps {
-  row: Row<Task>;
-  children: React.ReactNode;
-}
-
-const SortableRow = forwardRef<HTMLTableRowElement, SortableRowProps>(
+const SortableRow = forwardRef(
   ({ row, children }, ref) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
       useSortable({ id: row.id });
@@ -81,7 +63,7 @@ const SortableRow = forwardRef<HTMLTableRowElement, SortableRowProps>(
 SortableRow.displayName = "SortableRow";
 
 export default function TaskLists() {
-const tasks = useSelector((state: any) => state.tasks);
+const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
   const lastTaskRef = useRef<HTMLTableRowElement | null>(null);
 
@@ -99,7 +81,7 @@ useEffect(() => {
     localStorage.setItem("tasks_data", JSON.stringify(tasks));
   }
 }, [tasks]);
-  const columns = useMemo<ColumnDef<Task, any>[]>(
+  const columns = useMemo(
     () => [
       {
         id: "delete",
@@ -145,7 +127,7 @@ useEffect(() => {
                   {row.getIsExpanded() ? "-" : "+"}
                 </button>
               ) : null}
-              <span className="ml-[50px]">{getValue() as string}</span>
+              <span className="ml-[50px]">{getValue()}</span>
             </p>
             <button
               onClick={() => setSelectedTask(row.original)}
@@ -192,22 +174,22 @@ useEffect(() => {
     useSensor(KeyboardSensor)
   );
 
-  const topLevelIds = useMemo(() => tasks.map((d:any) => d.id), [tasks]);
+  const topLevelIds = useMemo(() => tasks.map((d) => d.id), [tasks]);
   const allRowIds = useMemo(() => table.getRowModel().rows.map((r) => r.id), [table]);
 
-  const handleDragEnd = (event: DragEndEvent) => {
+  const handleDragEnd = (event) => {
     const { active, over } = event;
     if (!over || active.id === over.id) return;
     if (!allRowIds.includes(active.id.toString()) || !allRowIds.includes(over.id.toString())) return;
 
-    const oldIndex = tasks.findIndex((t:any) => t.id === active.id);
-    const newIndex = tasks.findIndex((t:any) => t.id === over.id);
+    const oldIndex = tasks.findIndex((t) => t.id === active.id);
+    const newIndex = tasks.findIndex((t) => t.id === over.id);
     if (oldIndex === -1 || newIndex === -1) return;
 
     dispatch(reorderTasks({ oldIndex, newIndex }));
   };
 
-  const renderCell = (cell: any, row: Row<Task>) => {
+  const renderCell = (cell, row) => {
     const depth = row.depth ?? 0;
     const firstCell =
       cell.column.id === "expander" || cell.column.id === "id" || cell.column.id === "name";

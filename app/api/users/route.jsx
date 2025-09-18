@@ -4,7 +4,8 @@ import { connectDB } from "@/lib/mongoose";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
 
-export async function POST(req:any) {
+
+export async function POST(req) {
   try {
     await connectDB();
     const body = await req.json();
@@ -22,7 +23,7 @@ export async function POST(req:any) {
     const hashed = await bcrypt.hash(password, 10);
     const user = await User.create({ email: email.toLowerCase(), password: hashed, firstName,lastName });
     return NextResponse.json({ id: user._id, email: user.email,firstName:user.firstName,lastName:user.lastName }, { status: 201 });
-  } catch (err:unknown) {
+  } catch (err) {
     console.error(err);
    const message = err instanceof Error ? err.message : "Server error";
     return NextResponse.json({ error: message }, { status: 500 });  }

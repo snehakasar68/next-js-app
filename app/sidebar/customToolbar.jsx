@@ -14,9 +14,7 @@ import { toggleTheme } from "@/slices/themeSlice";
 // Drawer width should match your Sidebar
 const drawerWidth = 240;
 
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
+
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -35,22 +33,18 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-interface CustomToolbarProps {
-  handleDrawerOpen: () => void;
-  open: boolean;
-  className?: string;
-}
 
-const CustomToolbar: React.FC<CustomToolbarProps> = ({ handleDrawerOpen, open,className }) => {
+
+const CustomToolbar= ({ handleDrawerOpen, open,className }) => {
   const { data: session } = useSession();
   const router = useRouter();
   const dispatch = useDispatch();
-  const mode = useSelector((state: any) => state.theme.mode);
+  const mode = useSelector((state) => state.theme.mode);
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
