@@ -8,7 +8,7 @@ const About=()=>{
             <h1 className={styles.title}>This is about page</h1>
            
             <style jsx>
-                {`
+                  {`
                     p{
                         color:orange;
                     }
