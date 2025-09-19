@@ -9,7 +9,7 @@ const Register=() => {
     const [user,setUser]=useState({ firstName:"", lastName:"", email:"", password:"" })
    
     const [error,setError]=useState("");
-    const inputRef=useRef<HTMLElement | null>(null);
+    const inputRef=useRef(null);
     const router = useRouter();
     
     const handleRegister=async()=>{
