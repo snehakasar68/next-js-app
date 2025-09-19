@@ -1,4 +1,4 @@
-import { connectDB } from "@/lib/mongoose";
+import { connectDB } from "../../../lib/mongoose.js";
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({

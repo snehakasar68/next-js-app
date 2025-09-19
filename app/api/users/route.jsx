@@ -1,7 +1,7 @@
 // app/api/users/route.js
 import { NextResponse } from "next/server";
-import { connectDB } from "@/lib/mongoose";
-import User from "@/models/User";
+import { connectDB } from "../../../lib/mongoose.js";
+import User from "../../../models/User.js";
 import bcrypt from "bcryptjs";
 
 
