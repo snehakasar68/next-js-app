@@ -8,13 +8,13 @@ export const config = {
   api: { bodyParser: false }, // important
 };
 
-export async function PATCH(req: Request) {
+export async function PATCH(req) {
   try {
     await connectDB();
 
     const formData = await req.formData();
     const id = formData.get("id")?.toString();
-    const file = formData.get("profileImage") as File;
+    const file = formData.get("profileImage") ;
 
     if (!id) return NextResponse.json({ error: "User ID is required" }, { status: 400 });
     if (!file) return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
@@ -41,7 +41,7 @@ export async function PATCH(req: Request) {
     if (!updatedUser) return NextResponse.json({ error: "User not found" }, { status: 404 });
 
     return NextResponse.json({ profileImage: publicPath }, { status: 200 });
-  } catch (err: unknown) {
+  } catch (err) {
     const message = err instanceof Error ? err.message : "Server error";
     return NextResponse.json({ error: message }, { status: 500 });
   }
