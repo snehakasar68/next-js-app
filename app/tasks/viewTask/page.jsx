@@ -4,25 +4,9 @@ import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { useDispatch } from "react-redux";
 import { updateTask } from "@/slices/tasksSlice";
 
-interface Subtask {
-  id?: string;
-  name: string;
-}
 
-interface Task {
-  id?: string;
-  name: string;
-  project: string;
-  owner: string;
-  subtasks?: Subtask[];
-}
 
-interface ViewTaskProps {
-  selectedTask: Task | null;
-  setSelectedTask: (task: Task | null) => void;
-}
-
-const ViewTask: React.FC<ViewTaskProps> = ({ selectedTask, setSelectedTask }) => {
+const ViewTask = ({ selectedTask, setSelectedTask }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState<string>(selectedTask?.name || "");
   const dispatch = useDispatch();
@@ -36,7 +20,7 @@ const ViewTask: React.FC<ViewTaskProps> = ({ selectedTask, setSelectedTask }) =>
     }
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e) => {
     if (e.key === "Enter") e.currentTarget.blur();
     if (e.key === "Escape") {
       setValue(selectedTask?.name || "");
@@ -78,7 +62,7 @@ const ViewTask: React.FC<ViewTaskProps> = ({ selectedTask, setSelectedTask }) =>
           <input
             type="text"
             value={value}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
             onBlur={handleBlur}
             onKeyDown={handleKeyDown}
             className="border border-gray-300 px-2 py-1 rounded w-[70%] focus-visible:outline-none"

@@ -13,12 +13,7 @@ const style = {
   p: 4,
 };
 
-interface ConfirmationModalProps {
-  id: string; 
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-export default function ConfirmationModal({id,open,setOpen}:ConfirmationModalProps){
+export default function ConfirmationModal({id,open,setOpen}){
   const handleClose = () => setOpen(false);
   const dispatch=useDispatch()
 return(

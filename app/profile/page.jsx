@@ -7,8 +7,8 @@ import { useState, useEffect } from "react";
 export default function Profile() {
   const { data: session, status, update } = useSession();
   
-  const [profileImage, setProfileImage] = useState<string | null>(null);
-  const [profileFile, setProfileFile] = useState<File | null>(null);
+  const [profileImage, setProfileImage] = useState(null);
+  const [profileFile, setProfileFile] = useState(null);
 
   useEffect(() => {
     if (status === "authenticated" && session?.user?.image) {
@@ -19,7 +19,7 @@ export default function Profile() {
   if (status === "loading") return <p>Loading...</p>;
   if (status === "unauthenticated") return <p>Not logged in</p>;
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
       setProfileFile(file);

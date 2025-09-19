@@ -2,7 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@slices/*": ["/slices/*"]
+      "@slices/*": ["/slices/*"],
+      "@app/*": ["/app/*"],
+      "@data/*": ["/data/*"],
+      "@lib/*": ["/lib/*"],
+      "@models/*": ["/models/*"],
+       "@public/*": ["/public/*"],
+        "@redux/*": ["/redux/*"]
     }
   }
 }
