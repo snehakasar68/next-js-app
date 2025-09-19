@@ -1,5 +1,5 @@
 "use client";
-import AddTask from "@/app/tasks/addTask/page";
+import AddTask from "../tasks/addTask/page";
 import React, { useState } from "react";
 import TaskLists from "./taskLists"
 export default function TaskBoard() {

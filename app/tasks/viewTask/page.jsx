@@ -2,13 +2,13 @@
 
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { useDispatch } from "react-redux";
-import { updateTask } from "@/slices/tasksSlice";
+import { updateTask } from "../../../slices/tasksSlice";
 
 
 
 const ViewTask = ({ selectedTask, setSelectedTask }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [value, setValue] = useState<string>(selectedTask?.name || "");
+  const [value, setValue] = useState(selectedTask?.name || "");
   const dispatch = useDispatch();
 
   const handleDoubleClick = () => setIsEditing(true);

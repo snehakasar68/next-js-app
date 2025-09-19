@@ -1,6 +1,6 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { deleteTask } from "@/slices/tasksSlice";
+import { deleteTask } from "../../../slices/tasksSlice";
 
 const style = {
   position: 'absolute',

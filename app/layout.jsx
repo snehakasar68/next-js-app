@@ -1,10 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "@/public/styles/global.css";
+// import "../public/styles/globals.css";
 import Providers from "./Providers";
-import SideBar from "@/app/sidebar/sidebar";
+import SideBar from "../app/sidebar/sidebar";
 import Box from "@mui/material/Box";
-import { store } from "@/redux/store";
+// import { store } from "@/redux/store";
 import {Montserrat} from "next/font/google";
 import localFont from "next/font/local";
 

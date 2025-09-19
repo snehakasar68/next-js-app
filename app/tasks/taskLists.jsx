@@ -26,7 +26,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import {  reorderTasks } from "@/slices/tasksSlice";
+import {  reorderTasks } from "../../slices/tasksSlice";
 import ConfirmationModal from "./viewTask/confimationModal";
 import ViewTask from "./viewTask/page";
 
@@ -65,11 +65,11 @@ SortableRow.displayName = "SortableRow";
 export default function TaskLists() {
 const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
-  const lastTaskRef = useRef<HTMLTableRowElement | null>(null);
+  const lastTaskRef = useRef(null);
 
   const [deletePopup, setDeletePopup] = useState(false);
-  const [deleteId, setDeleteId] = useState<string>("");
-  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const [deleteId, setDeleteId] = useState("");
+  const [selectedTask, setSelectedTask] = useState(null);
 
   useEffect(() => {
     if (lastTaskRef.current) {

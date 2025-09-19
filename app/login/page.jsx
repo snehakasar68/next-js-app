@@ -11,7 +11,7 @@ const LoginPage=() => {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("");
     const [error,setError]=useState("");
-    const inputRef=useRef<HTMLElement | null>(null);
+    const inputRef=useRef(null);
     const router = useRouter();
     const handleLogin=async()=>{
        const res = await signIn("credentials", {

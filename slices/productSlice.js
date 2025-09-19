@@ -1,27 +1,15 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-// Define Product type
-interface Product {
-  id: number;
-  name: string;
-}
-
-interface ProductsState {
-  products: Product[];
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
-}
-
 // Async thunk with type
-export const fetchProducts = createAsyncThunk<Product[]>(
+export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
     const response = await fetch("/api/products");
-    return (await response.json()) as Product[];
+    return (await response.json()) ;
   }
 );
 
-const initialState: ProductsState = {
+const initialState = {
   products: [],
   status: "idle",
   error: null,
@@ -37,7 +25,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
+      .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.products = action.payload;  
       })

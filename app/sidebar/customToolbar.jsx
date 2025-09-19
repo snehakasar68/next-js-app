@@ -8,7 +8,7 @@ import { styled } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "@/slices/themeSlice";
+import { toggleTheme } from "../../slices/themeSlice";
 // import { toggleTheme } from "../Theme/themeSlice"; 
 
 // Drawer width should match your Sidebar
@@ -18,7 +18,7 @@ const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
-})<AppBarProps>(({ theme, open }) => ({
+})(({ theme, open }) => ({
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -41,7 +41,7 @@ const CustomToolbar= ({ handleDrawerOpen, open,className }) => {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.theme.mode);
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
 
   const handleClick = (event) => {

@@ -2,8 +2,8 @@
 
 import React, { useState, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTask } from "@/slices/tasksSlice";
-import tasksJson from "@/data/tasks.json";
+import { addTask } from "../../../slices/tasksSlice";
+import tasksJson from "../../../data/tasks.json";
 
 
 
@@ -11,7 +11,7 @@ const AddTask = ({ onClose }) => {
   const dispatch = useDispatch();
   // const tasks = useSelector((state:any) => state.tasks.tasks);
 
-  const [task, setTask] = useState<Task>({
+  const [task, setTask] = useState({
     name: "",
     project: "",
     owner: "",
