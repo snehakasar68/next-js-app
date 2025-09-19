@@ -7,12 +7,11 @@ const ProductsPage=()=>{
     const [products,setProducts]=useState({name:"",desc:"",qty:0});
     const handleSubmit=async() =>{
         console.log("sdfh",products)
-    const res = await fetch("/api/products", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({...products, qty: Number(products.qty)}),
-    });
-
+   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ ...products, qty: Number(products.qty) }),
+});
     const data = await res.json();
 setProducts({name:"",desc:"",qty:0})  }
     

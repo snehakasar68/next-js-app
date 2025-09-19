@@ -34,7 +34,7 @@ export default function Profile() {
     formData.append("id", session?.user.id ?? ""); 
     formData.append("profileImage", profileFile); 
 
-    const res = await fetch("/api/users/upload", {
+    const res = await fetch( `${process.env.NEXT_PUBLIC_API_URL}/api/users/upload`, {
       method: "PATCH",
       body: formData,
     });
